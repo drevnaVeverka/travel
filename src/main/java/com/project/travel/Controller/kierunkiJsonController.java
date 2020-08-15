@@ -77,18 +77,43 @@ String json= jsonCountriesOuter.toString();
     @RequestMapping(value = "/pokoje")
     @ResponseBody
     public String getRooms(@RequestParam("depdrop_all_params[hotele]") int hotel) throws SQLException {
-        System.out.println("aaaa zwracam hotele, dla country id:"+hotel);
-
-        List<HotelsModel> hotelsList= getHotelsList(hotel);
-
+        System.out.println("aaaa zwracam pokoje , dla hotel  id:"+hotel);
+        List<RoomModel> roomsList = new kierunkiController().getDataBaseData(-1,-1,hotel,-1);
         var jsonCountriesInner = new JSONArray();
 
-        for (HotelsModel singleHotel: hotelsList
+        for (RoomModel singleRoom: roomsList
         ) {
             jsonCountriesInner
                     .put(new JSONObject()
-                            .put("id",singleHotel.hotelId)
-                            .put("name",singleHotel.name)
+                            .put("id",singleRoom.roomId)
+                            .put("name",singleRoom.persons)
+                    );
+        }
+
+        var jsonCountriesOuter=new JSONObject()
+                .put("output",jsonCountriesInner)
+                .put("selected","");
+
+        String json= jsonCountriesOuter.toString();
+
+        System.out.println("json:"+json);
+        return json;
+
+    }
+
+    @RequestMapping(value = "/cena")
+    @ResponseBody
+    public String getPrice(@RequestParam("depdrop_all_params[pokoje]") int room) throws SQLException {
+        System.out.println("aaaa zwracam cene , dla room id:"+room);
+        List<RoomModel> roomsList = new kierunkiController().getDataBaseData(-1,-1,-1, room);
+        var jsonCountriesInner = new JSONArray();
+
+        for (RoomModel singlePrice: roomsList
+        ) {
+            jsonCountriesInner
+                    .put(new JSONObject()
+                            .put("id",singlePrice.roomId)
+                            .put("name",singlePrice.price)
                     );
         }
 

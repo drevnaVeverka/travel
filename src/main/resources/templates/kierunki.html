@@ -40,8 +40,9 @@
             <li><a href="/zarejestruj">Zarejestruj</a></li>
         </ul>
     </li>
+</ul>
     <p th:text="'Hello, ' + ${roomsList} + '!'"/>
-    <p th:text="${param.continentId}">Test</p>
+
     <select name="kontynent" id="kontynenty" >
         <option value=""> -- </option>
         <option th:each="continent : ${continentsList}"
@@ -59,6 +60,10 @@
         <!-- your select options -->
     </select>
     <select id="pokoje" class="form-control">
+        <!-- your select options -->
+    </select>
+
+    <select id="cena" class="form-control">
         <!-- your select options -->
     </select>
     <!-- Javascript call on document ready -->
@@ -98,12 +103,16 @@
        $("#pokoje").depdrop({
         url: 'pokoje',
         depends: [ 'hotele']
+    });
 
+    $("#cena").depdrop({
+        url: 'cena',
+        depends: [ 'pokoje']
     });
 </script>
 
 
 
-</ul>
+
 </body>
 </html>

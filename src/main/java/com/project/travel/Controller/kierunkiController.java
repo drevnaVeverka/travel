@@ -32,7 +32,7 @@ public class kierunkiController {
      */
 
 
-    public  List<RoomModel> getDataBaseData(int continentId, int countryId ) throws SQLException
+    public  List<RoomModel> getDataBaseData(int continentId, int countryId, int hotelId, int roomId ) throws SQLException
     {
 
         String sqlStatement ="SELECT " +
@@ -58,6 +58,17 @@ public class kierunkiController {
             System.out.println("asking only for country_id="+countryId);
             sqlStatement = appendWhere(sqlStatement, "\"Country\".country_id=" + countryId);
         }
+
+        if(hotelId >= 0){
+            System.out.println("asking only for hotel_id="+hotelId);
+            sqlStatement = appendWhere(sqlStatement, "\"Hotels\".hotel_id=" + hotelId);
+        }
+
+        if(roomId >= 0){
+            System.out.println("asking only for room_id="+hotelId);
+            sqlStatement = appendWhere(sqlStatement, "\"Rooms\".room_id=" + roomId);
+        }
+
         System.out.println(sqlStatement);
 
         var resultSet = Database
@@ -90,7 +101,7 @@ public class kierunkiController {
             @RequestParam(defaultValue = "-1") int countryId
     ) throws SQLException {
 
-        List<RoomModel> roomsList = getDataBaseData(continentId,countryId);
+        List<RoomModel> roomsList = getDataBaseData(continentId,countryId,-1,-1);
         List<RoomModel> continentsList= roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
 
         model.addAttribute("roomsList", roomsList);
