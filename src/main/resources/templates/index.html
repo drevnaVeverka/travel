@@ -9,13 +9,9 @@
 <div class="logo">
     <img src ="Images/fly.png">
 </div>
-
-<div th:fragment="topmenu"></div>
-
-<!--
 <ul>
     <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-    <li><a href="/about">O nas</a>
+    <li><a>O nas</a>
         <ul>
             <li><a a href="/informacje">Informacje</a></li>
             <li><a href="/faq">FAQ</a></li>
@@ -23,16 +19,8 @@
         </ul>
     </li>
     <li><a href="/kierunki">Kierunki</a>
-        <ul>
-            <li><a href="/afryka">Afryka</a></li>
-            <li><a href="/amerykapld">Ameryka Południowa</a></li>
-            <li><a href="/amerykapln">Ameryka Północna</a></li>
-            <li><a href="/australia">Australia</a></li>
-            <li><a href="/azja">Azja</a></li>
-            <li><a href="/europa">Europa</a></li>
-        </ul>
     </li>
-    <li><a href="/bezpieczne">Bezpieczne Wakacje</a>
+    <li><a>Bezpieczne Wakacje</a>
         <ul>
             <li><a href="informacjepodrozni">Ubezpieczenia</a></li>
             <li><a href="koronawirus">Koronawirus</a></li>
@@ -46,11 +34,46 @@
         </ul>
     </li>
 </ul>
-    -->
-<!--    <section id="footer">-->
-<!--        <div class="container text-center">-->
-<!--            <p>FLYING SQURREL MADE BY DREVNAVEVERKA & MARTGO</p>-->
-<!--        </div>-->
-<!--    </section>-->
+    <div class="slidershow">
+        <div class="slides">
+            <input type="radio" name="r" id="r1" checked>
+            <input type="radio" name="r" id="r2">
+            <input type="radio" name="r" id="r3">
+            <input type="radio" name="r" id="r4">
+            <input type="radio" name="r" id="r5">
+            <div class="slide s1">
+                <img src="Images/homepic.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="Images/europa.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="Images/azja.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="Images/amerypld.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="Images/statuawolnosci.png" alt="">
+            </div>
+        </div>
+        <div class="navigation">
+            <label for="r1" class="bar"></label>
+            <label for="r2" class="bar"></label>
+            <label for="r3" class="bar"></label>
+            <label for="r4" class="bar"></label>
+            <label for="r5" class="bar"></label>
+        </div>
+    </div>
+<div class="imgafryka">
+    <img src="Images/afrykaa.png" alt="">
+</div>
+<div class="imgaustralia">
+    <img src="Images/australia.png" alt="">
+</div>
+<div class="nowe">
+    <span class="text1">NOWE KIERUNKI</span>
+    <span class="text2">LATO 2020</span>
+</div>
 </body>
 </html>

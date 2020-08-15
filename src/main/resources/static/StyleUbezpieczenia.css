@@ -28,17 +28,12 @@ list-style: none;
 ul li{
 float:left;
 width: 250px;
-height: 60px;
+height: 40px;
 opacity: .8;
 line-height: 40px;
 text-align: center;
 font-size: 15px;
-z-index:100; /* needed to display on top of div.card */
-position:relative;
-/* TODO: add class to styling of the menu */
 }
-
-
 ul li a
 {
 text-decoration: none;
@@ -78,7 +73,7 @@ justify-content: space-between;
 .container .card{
 position: relative;
 cursor: pointer;
-z-index:99; /* needed for menu to display on top over it */
+margin-top: 50px;
 }
 
 .container .card .face{
@@ -106,7 +101,6 @@ transform: translateY(0);
 opacity: 0.8;
 transition: 0.8s;
 }
-
 
 .container .card:hover .face.face1 .content{
 opacity: 1;
@@ -196,7 +190,7 @@ color: #333;
 
 button{
 width: 300 px;
-height: 60px;
+height: 40px;
 border: none;
 outline: none;
 background: black;
