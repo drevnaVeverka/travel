@@ -41,12 +41,14 @@
         </ul>
     </li>
     <p th:text="'Hello, ' + ${roomsList} + '!'"/>
-
-    <select id="kontynenty">
+    <p th:text="${param.continentId}">Test</p>
+    <select name="kontynent" id="kontynenty" >
         <option value=""> -- </option>
         <option th:each="continent : ${continentsList}"
                 th:value="${continent.continentId}"
-                th:utext="${continent.continent}"/>
+                th:utext="${continent.continent}"
+
+        />
     </select>
 
     <select id="kraje" class="form-control">
@@ -61,10 +63,31 @@
     </select>
     <!-- Javascript call on document ready -->
     <script>
+    function getParameterByName( name ) //courtesy Artem
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+  {
+    if ((results[1].indexOf('?'))>0)
+        return decodeURIComponent(results[1].substring(0,results[1].indexOf('?')).replace(/\+/g, " "));
+    else
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+}
+    var selectedContinent = getParameterByName('continentId');
+    jQuery('select#kontynenty').val(selectedContinent).attr('selected', 'selected');
+
+
     // Child # 1
     $("#kraje").depdrop({
         url: 'countries',
-        depends: ['kontynenty']
+        depends: ['kontynenty'],
+        initialize: true
     });
 
     // Child # 2
@@ -75,6 +98,7 @@
        $("#pokoje").depdrop({
         url: 'pokoje',
         depends: [ 'hotele']
+
     });
 </script>
 

@@ -95,6 +95,8 @@ public class kierunkiController {
 
         model.addAttribute("roomsList", roomsList);
         model.addAttribute("continentsList", continentsList);
+
+
     }
 
     private String appendWhere(String sql, String condition) {
@@ -120,6 +122,7 @@ class RoomModel {
     public final String country;
     public final String hotel_name;
     public final String price;
+
 
     RoomModel(int roomId, int countryId, int continentId, int persons, String continent, String country, String hotel_name,String price) {
         this.roomId = roomId;
