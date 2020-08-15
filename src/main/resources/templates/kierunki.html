@@ -45,8 +45,8 @@
     <select id="kontynenty">
         <option value=""> -- </option>
         <option th:each="continent : ${continentsList}"
-                th:value="${continent.getContinentId()}"
-                th:utext="${continent.getContinent()}"/>
+                th:value="${continent.continentId}"
+                th:utext="${continent.continent}"/>
     </select>
 
     <select id="kraje" class="form-control">
@@ -67,8 +67,8 @@
 
     // Child # 2
     $("#hotele").depdrop({
-        url: '/server/getProd.php',
-        depends: ['kontynenty', 'kraje']
+        url: 'hotels',
+        depends: [ 'kraje']
     });
 </script>
 
