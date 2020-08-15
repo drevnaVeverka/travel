@@ -43,7 +43,7 @@
 </ul>
     <p th:text="'Hello, ' + ${roomsList} + '!'"/>
 
-    <select name="kontynent" id="kontynenty" >
+    <select name="roomid" id="kontynenty" >
         <option value=""> -- </option>
         <option th:each="continent : ${continentsList}"
                 th:value="${continent.continentId}"
@@ -63,9 +63,10 @@
         <!-- your select options -->
     </select>
 
-    <select id="cena" class="form-control">
+    <select id="cena" class="form-control" >
         <!-- your select options -->
     </select>
+
     <!-- Javascript call on document ready -->
     <script>
     function getParameterByName( name ) //courtesy Artem
@@ -87,7 +88,6 @@
     var selectedContinent = getParameterByName('continentId');
     jQuery('select#kontynenty').val(selectedContinent).attr('selected', 'selected');
 
-
     // Child # 1
     $("#kraje").depdrop({
         url: 'countries',
@@ -100,15 +100,33 @@
         url: 'hotels',
         depends: [ 'kraje']
     });
-       $("#pokoje").depdrop({
+
+  $("#pokoje").depdrop({
         url: 'pokoje',
         depends: [ 'hotele']
     });
 
-    $("#cena").depdrop({
+      $("#cena").depdrop({
         url: 'cena',
         depends: [ 'pokoje']
     });
+
+$("#pokoje").change(function()
+{
+ var val = $(this).val();
+  if( typeof val !== 'undefined' )
+   {
+  console.log(val);
+
+  // wyswietl cene i guzik rezerwuj
+  var cenaa=$("#cena option:eq(1)").text();
+  console.log(cenaa);
+ }
+}
+ );
+
+
+
 </script>
 
 
