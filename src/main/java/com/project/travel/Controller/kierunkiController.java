@@ -1,19 +1,22 @@
 package com.project.travel.Controller;
 
 import com.project.travel.Data.Database;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
+import java.io.StringWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
 
 @Controller
 public class kierunkiController {
@@ -37,15 +40,42 @@ public class kierunkiController {
     }
 
     public List<RoomModel> getContinentsList() throws SQLException {
-        List<RoomModel>   roomsList = getDataBaseData(-1,-1);
-         List<RoomModel> continentsList= roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
-          System.out.println("---- continents list--- ");
-          System.out.println(continentsList);
-return continentsList;
+        List<RoomModel> roomsList = getDataBaseData(-1, -1);
+        List<RoomModel> continentsList = roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
+        System.out.println("---- continents list--- ");
+        System.out.println(continentsList);
+        return continentsList;
     }
+
+
+public String getCountriesListAsJson(int continentId) throws SQLException, IOException {
+            List<RoomModel> roomsList = getDataBaseData(continentId, -1);
+
+    List<RoomModel> countriesList= roomsList.stream().filter(distinctByKey(p -> p.getCountry())).collect(Collectors.toList());
+
+var jsonCountriesInner = new JSONArray();
+
+    for (RoomModel singleRoom: countriesList
+         ) {
+       jsonCountriesInner
+               .put(new JSONObject()
+                       .put("id",singleRoom.countryId)
+                       .put("name",singleRoom.country)
+               );
+    }
+
+    var jsonCountriesOuter=new JSONObject()
+                         .put("output",jsonCountriesInner)
+                         .put("selected","");
+
+
+    return jsonCountriesOuter.toString();
+
+        }
     public  List<RoomModel> getDataBaseData(int continentId, int countryId ) throws SQLException
     {
-        String sqlStatement ="SELECT" +
+
+        String sqlStatement ="SELECT " +
                 " \"Rooms\".room_id," +
                 " \"Country\".country_id," +
                 " \"Continent\".continent_id," +
@@ -60,9 +90,12 @@ return continentsList;
                 " INNER JOIN \"Continent\" ON \"Continent\".continent_id=\"Country\".continent_fki";
 
         if(continentId >= 0) {
+            System.out.println("asking only for continent_id="+continentId);
+
             sqlStatement = appendWhere(sqlStatement, "\"Continent\".continent_id=" + continentId);
         }
         if(countryId >= 0){
+            System.out.println("asking only for country_id="+countryId);
             sqlStatement = appendWhere(sqlStatement, "\"Country\".country_id=" + countryId);
         }
         System.out.println(sqlStatement);
