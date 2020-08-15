@@ -56,7 +56,9 @@
     <select id="hotele" class="form-control">
         <!-- your select options -->
     </select>
-
+    <select id="pokoje" class="form-control">
+        <!-- your select options -->
+    </select>
     <!-- Javascript call on document ready -->
     <script>
     // Child # 1
@@ -69,6 +71,10 @@
     $("#hotele").depdrop({
         url: 'hotels',
         depends: [ 'kraje']
+    });
+       $("#pokoje").depdrop({
+        url: 'pokoje',
+        depends: [ 'hotele']
     });
 </script>
 

@@ -8,43 +8,155 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Controller
 public class kierunkiJsonController {
 
     @RequestMapping(value = "/countries")
     @ResponseBody
-    public String getCountries(@RequestParam("depdrop_all_params[kontynenty]") int kontynenty) throws IOException, SQLException {
+    public String getCountries(@RequestParam("depdrop_all_params[kontynenty]") int kontynenty) throws SQLException {
         System.out.println("aaaa zwracam countries, dla kontynent id:"+kontynenty);
-        var json=getCountriesListAsJson(kontynenty);
+
+        List<CountryModel> countriesList= getCountriesList(kontynenty);
+
+        var jsonCountriesInner = new JSONArray();
+
+        for (CountryModel singleCountry: countriesList
+        ) {
+            jsonCountriesInner
+                    .put(new JSONObject()
+                            .put("id",singleCountry.countryId)
+                            .put("name",singleCountry.country)
+                    );
+        }
+
+        var jsonCountriesOuter=new JSONObject()
+                .put("output",jsonCountriesInner)
+                .put("selected","");
+
+String json= jsonCountriesOuter.toString();
+
         System.out.println("json:"+json);
         return json;
 
     }
-/*
+
+
     @RequestMapping(value = "/hotels")
     @ResponseBody
-    public String getHotels(@RequestParam("depdrop_all_params[kraje]") int country) throws IOException, SQLException {
+    public String getHotels(@RequestParam("depdrop_all_params[kraje]") int country) throws SQLException {
         System.out.println("aaaa zwracam hotele, dla country id:"+country);
-        var json=getHotelsListAsJson(country);
+
+        List<HotelsModel> hotelsList= getHotelsList(country);
+
+        var jsonCountriesInner = new JSONArray();
+
+        for (HotelsModel singleHotel: hotelsList
+        ) {
+            jsonCountriesInner
+                    .put(new JSONObject()
+                            .put("id",singleHotel.hotelId)
+                            .put("name",singleHotel.name)
+                    );
+        }
+
+        var jsonCountriesOuter=new JSONObject()
+                .put("output",jsonCountriesInner)
+                .put("selected","");
+
+        String json= jsonCountriesOuter.toString();
+
         System.out.println("json:"+json);
         return json;
 
     }
 
- */
-    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
-        final Set<Object> seen = new HashSet<>();
-        return t -> seen.add(keyExtractor.apply(t));
+    @RequestMapping(value = "/pokoje")
+    @ResponseBody
+    public String getRooms(@RequestParam("depdrop_all_params[hotele]") int hotel) throws SQLException {
+        System.out.println("aaaa zwracam hotele, dla country id:"+hotel);
+
+        List<HotelsModel> hotelsList= getHotelsList(hotel);
+
+        var jsonCountriesInner = new JSONArray();
+
+        for (HotelsModel singleHotel: hotelsList
+        ) {
+            jsonCountriesInner
+                    .put(new JSONObject()
+                            .put("id",singleHotel.hotelId)
+                            .put("name",singleHotel.name)
+                    );
+        }
+
+        var jsonCountriesOuter=new JSONObject()
+                .put("output",jsonCountriesInner)
+                .put("selected","");
+
+        String json= jsonCountriesOuter.toString();
+
+        System.out.println("json:"+json);
+        return json;
+
+    }
+
+    public List<HotelsModel> getHotelsList(int countryId) throws SQLException {
+
+        String sqlStatement ="SELECT " +
+
+                " \"Hotels\".hotel_id as hotel_id," +
+                " \"Hotels\".name\n as hotel_name" +
+                " FROM \"Hotels\" WHERE country_id="+countryId+"\n";
+        System.out.println(sqlStatement);
+
+
+
+        var resultSet = Database
+                .getConnection()
+                .createStatement()
+                .executeQuery(sqlStatement);
+
+        List<HotelsModel> hotelList = new ArrayList<>();
+        while (resultSet.next()){
+            hotelList.add(new HotelsModel(
+                    resultSet.getInt("hotel_id"),
+                    resultSet.getString("hotel_name")
+            ));
+        }
+        System.out.println(hotelList);
+
+        return hotelList;
+    }
+
+    public List<CountryModel> getCountriesList(int continentId) throws SQLException {
+
+        String sqlStatement ="SELECT " +
+
+                " \"Country\".country_id as country_id," +
+                " \"Country\".name\n as country_name" +
+                " FROM \"Country\" WHERE continent_fki="+continentId+"\n";
+        System.out.println(sqlStatement);
+
+
+
+        var resultSet = Database
+                .getConnection()
+                .createStatement()
+                .executeQuery(sqlStatement);
+
+        List<CountryModel> countryList = new ArrayList<>();
+        while (resultSet.next()){
+            countryList.add(new CountryModel(
+                    resultSet.getInt("country_id"),
+                    resultSet.getString("country_name")
+            ));
+        }
+        System.out.println(countryList);
+
+        return countryList;
     }
 
     public List<ContinentModel> getContinentsList() throws SQLException {
@@ -74,60 +186,6 @@ public class kierunkiJsonController {
 
         return continentList;
     }
-/*
-    private String getHotelsListAsJson(int country) {
-        List<RoomModel> hotels = getHotels(country);
-
-
-        var jsonCountriesInner = new JSONArray();
-
-        for (RoomModel singleRoom: countriesList
-        ) {
-            jsonCountriesInner
-                    .put(new JSONObject()
-                            .put("id",singleRoom.countryId)
-                            .put("name",singleRoom.country)
-                    );
-        }
-
-        var jsonCountriesOuter=new JSONObject()
-                .put("output",jsonCountriesInner)
-                .put("selected","");
-
-
-        return jsonCountriesOuter.toString();
-    }
-
-
- */
-
-
-    public String getCountriesListAsJson(int continentId) throws SQLException, IOException {
-        List<RoomModel> roomsList = new kierunkiController().getDataBaseData(continentId, -1);
-
-        List<RoomModel> countriesList= roomsList.stream().filter(distinctByKey(p -> p.getCountry())).collect(Collectors.toList());
-
-        var jsonCountriesInner = new JSONArray();
-
-        for (RoomModel singleRoom: countriesList
-        ) {
-            jsonCountriesInner
-                    .put(new JSONObject()
-                            .put("id",singleRoom.countryId)
-                            .put("name",singleRoom.country)
-                    );
-        }
-
-        var jsonCountriesOuter=new JSONObject()
-                .put("output",jsonCountriesInner)
-                .put("selected","");
-
-
-        return jsonCountriesOuter.toString();
-
-    }
-
-
 
 }
 
@@ -152,3 +210,14 @@ class ContinentModel
     }
 }
 
+class HotelsModel
+{
+    public final int hotelId;
+    public final String name;
+
+
+    HotelsModel(int hotelId, String name) {
+        this.hotelId = hotelId;
+        this.name = name;
+    }
+}

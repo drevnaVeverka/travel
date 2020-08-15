@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -57,8 +60,6 @@ public class kierunkiController {
         }
         System.out.println(sqlStatement);
 
-
-
         var resultSet = Database
                 .getConnection()
                 .createStatement()
@@ -90,7 +91,8 @@ public class kierunkiController {
     ) throws SQLException {
 
         List<RoomModel> roomsList = getDataBaseData(continentId,countryId);
-        List<ContinentModel> continentsList = new kierunkiJsonController().getContinentsList();
+        List<RoomModel> continentsList= roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
+
         model.addAttribute("roomsList", roomsList);
         model.addAttribute("continentsList", continentsList);
     }
@@ -101,6 +103,11 @@ public class kierunkiController {
         }else {
             return sql + " WHERE " + condition;
         }
+    }
+
+    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        final Set<Object> seen = new HashSet<>();
+        return t -> seen.add(keyExtractor.apply(t));
     }
 }
 
