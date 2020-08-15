@@ -36,13 +36,15 @@ public class kierunkiController {
         return t -> seen.add(keyExtractor.apply(t));
     }
 
-
-    @GetMapping("/kierunki")
-    public void getHotelData(
-            Model model,
-            @RequestParam(defaultValue = "-1") int continentId,
-            @RequestParam(defaultValue = "-1") int countryId
-    ) throws SQLException {
+    public List<RoomModel> getContinentsList() throws SQLException {
+        List<RoomModel>   roomsList = getDataBaseData(-1,-1);
+         List<RoomModel> continentsList= roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
+          System.out.println("---- continents list--- ");
+          System.out.println(continentsList);
+return continentsList;
+    }
+    public  List<RoomModel> getDataBaseData(int continentId, int countryId ) throws SQLException
+    {
         String sqlStatement ="SELECT" +
                 " \"Rooms\".room_id," +
                 " \"Country\".country_id," +
@@ -83,24 +85,32 @@ public class kierunkiController {
                     resultSet.getString("country_name"),
                     resultSet.getString("hotel_name"),
                     resultSet.getString("price")
-
-
             ));
         }
         System.out.println(roomsList);
 
-        List<RoomModel> countriesList= roomsList.stream().filter(distinctByKey(p -> p.getCountry())).collect(Collectors.toList());
-        List<RoomModel> continentsList= roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
+     //   List<RoomModel> countriesList= roomsList.stream().filter(distinctByKey(p -> p.getCountry())).collect(Collectors.toList());
+      //  List<RoomModel> continentsList= roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
 
-        System.out.println("---- continents list--- ");
-        System.out.println(continentsList);
 
-        System.out.println("---- countries list--- ");
-        System.out.println(countriesList);
 
+       // System.out.println("---- countries list--- ");
+       // System.out.println(countriesList);
+return roomsList;
+    }
+
+    @GetMapping("/kierunki")
+    public void kierunki(
+            Model model,
+            @RequestParam(defaultValue = "-1") int continentId,
+            @RequestParam(defaultValue = "-1") int countryId
+    ) throws SQLException {
+
+        List<RoomModel> roomsList = getDataBaseData(continentId,countryId);
+        List<RoomModel> continentsList = getContinentsList();
         model.addAttribute("roomsList", roomsList);
         model.addAttribute("continentsList", continentsList);
-        model.addAttribute("countriesList", countriesList);
+      //  model.addAttribute("countriesList", countriesList);
 
 
 
