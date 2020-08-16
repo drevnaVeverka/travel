@@ -18,10 +18,9 @@ import java.util.stream.Collectors;
 public class kierunkiController {
 
 
-    public  List<RoomModel> getDataBaseData(int continentId, int countryId, int hotelId, int roomId ) throws SQLException
-    {
+    public List<RoomModel> getDataBaseData(int continentId, int countryId, int hotelId, int roomId) throws SQLException {
 
-        String sqlStatement ="SELECT " +
+        String sqlStatement = "SELECT " +
                 " \"Rooms\".room_id," +
                 " \"Country\".country_id," +
                 " \"Continent\".continent_id," +
@@ -35,23 +34,23 @@ public class kierunkiController {
                 " INNER JOIN \"Country\" ON \"Country\".country_id=\"Hotels\".country_id\n" +
                 " INNER JOIN \"Continent\" ON \"Continent\".continent_id=\"Country\".continent_fki";
 
-        if(continentId >= 0) {
-            System.out.println("asking only for continent_id="+continentId);
+        if (continentId >= 0) {
+            System.out.println("asking only for continent_id=" + continentId);
 
             sqlStatement = appendWhere(sqlStatement, "\"Continent\".continent_id=" + continentId);
         }
-        if(countryId >= 0){
-            System.out.println("asking only for country_id="+countryId);
+        if (countryId >= 0) {
+            System.out.println("asking only for country_id=" + countryId);
             sqlStatement = appendWhere(sqlStatement, "\"Country\".country_id=" + countryId);
         }
 
-        if(hotelId >= 0){
-            System.out.println("asking only for hotel_id="+hotelId);
+        if (hotelId >= 0) {
+            System.out.println("asking only for hotel_id=" + hotelId);
             sqlStatement = appendWhere(sqlStatement, "\"Hotels\".hotel_id=" + hotelId);
         }
 
-        if(roomId >= 0){
-            System.out.println("asking only for room_id="+hotelId);
+        if (roomId >= 0) {
+            System.out.println("asking only for room_id=" + hotelId);
             sqlStatement = appendWhere(sqlStatement, "\"Rooms\".room_id=" + roomId);
         }
 
@@ -63,7 +62,7 @@ public class kierunkiController {
                 .executeQuery(sqlStatement);
 
         List<RoomModel> roomsList = new ArrayList<>();
-        while (resultSet.next()){
+        while (resultSet.next()) {
             roomsList.add(new RoomModel(
                     resultSet.getInt("room_id"),
                     resultSet.getInt("country_id"),
@@ -87,8 +86,8 @@ public class kierunkiController {
             @RequestParam(defaultValue = "-1") int countryId
     ) throws SQLException {
 
-        List<RoomModel> roomsList = getDataBaseData(continentId,countryId,-1,-1);
-        List<RoomModel> continentsList= roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
+        List<RoomModel> roomsList = getDataBaseData(continentId, countryId, -1, -1);
+        List<RoomModel> continentsList = roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
 
         model.addAttribute("roomsList", roomsList);
         model.addAttribute("continentsList", continentsList);
@@ -97,9 +96,9 @@ public class kierunkiController {
     }
 
     private String appendWhere(String sql, String condition) {
-        if(sql.contains("WHERE")){
+        if (sql.contains("WHERE")) {
             return sql + " AND " + condition;
-        }else {
+        } else {
             return sql + " WHERE " + condition;
         }
     }
@@ -121,10 +120,10 @@ class RoomModel {
     public final String price;
 
 
-    RoomModel(int roomId, int countryId, int continentId, int persons, String continent, String country, String hotel_name,String price) {
+    RoomModel(int roomId, int countryId, int continentId, int persons, String continent, String country, String hotel_name, String price) {
         this.roomId = roomId;
-        this.countryId=countryId;
-        this.continentId=continentId;
+        this.countryId = countryId;
+        this.continentId = continentId;
         this.persons = persons;
         this.continent = continent;
         this.country = country;
@@ -132,13 +131,11 @@ class RoomModel {
         this.price = price;
     }
 
-    public String getCountry()
-    {
+    public String getCountry() {
         return this.country;
     }
 
-    public int getCountryId()
-    {
+    public int getCountryId() {
         return this.countryId;
     }
 
