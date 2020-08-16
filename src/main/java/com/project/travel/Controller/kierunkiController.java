@@ -17,20 +17,6 @@ import java.util.stream.Collectors;
 @Controller
 public class kierunkiController {
 
-    /**
-     * select "Rooms".room_id, "Rooms".persons, "Rooms".price, "Hotels".name, "Hotels".description, "Country".name, "Continent".name
-     * from "Rooms"
-     * INNER JOIN "Hotels" ON "Hotels".hotel_id="Rooms".hotel_id
-     * INNER JOIN "Country" ON "Country".country_id="Hotels".country_id
-     * INNER JOIN "Continent" ON "Continent".continent_id="Country".continent_fki
-     *
-     * WHERE
-     *
-     * "Continent".continent_id = 2
-     *
-     * ;
-     */
-
 
     public  List<RoomModel> getDataBaseData(int continentId, int countryId, int hotelId, int roomId ) throws SQLException
     {
@@ -156,27 +142,25 @@ class RoomModel {
         return this.countryId;
     }
 
-    public String getContinent()
-    {
+    public String getContinent() {
         return this.continent;
     }
 
-    public int getContinentId()
-    {
+    public int getContinentId() {
         return this.continentId;
     }
-    @Override
-    public String toString() {
-        return "RoomModel{" +
-                "roomId=" + roomId +
-                " countryId=" + countryId +
-                " continentId=" + continentId +
-                ", persons=" + persons +
-                ", continent='" + continent + '\'' +
-                ", country='" + country + '\'' +
-                ", hotel_name='" + hotel_name + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "RoomModel{" +
+//                "roomId=" + roomId +
+//                " countryId=" + countryId +
+//                " continentId=" + continentId +
+//                ", persons=" + persons +
+//                ", continent='" + continent + '\'' +
+//                ", country='" + country + '\'' +
+//                ", hotel_name='" + hotel_name + '\'' +
+//                ", price='" + price + '\'' +
+//                '}';
+//    }
 }
 

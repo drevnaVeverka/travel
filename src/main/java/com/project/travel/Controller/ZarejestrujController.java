@@ -8,4 +8,5 @@ public class ZarejestrujController {
     public String zarejestrujPage(){
         return "zarejestruj";
     }
+
 }

@@ -1,3 +1,55 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" type="text/css" href="StyleLogin.css">-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<!--    <title>Flying squirrel</title>-->
+
+
+<!--<body>-->
+<!--&lt;!&ndash;<div class="logo">&ndash;&gt;-->
+<!--&lt;!&ndash;    <img src ="Images/fly.png">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li class="active"><a href="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a>O nas</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="/informacje">Informacje</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="/faq">FAQ</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="/kontakt">Kontakt</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a href="/kierunki">Kierunki</a>&ndash;&gt;-->
+<!--&lt;!&ndash;    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a>Bezpieczne Wakacje</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="informacjepodrozni">Ubezpieczenia</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="zglos">Zgłoś podróż </a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a>Moje konto</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="/login">Zaloguj</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a href="/zarejestruj">Zarejestruj</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--<form action="login" method="post">-->
+<!--    <div class="container2">-->
+<!--        <label for="uname"><b>Login</b></label> <input type="text"-->
+<!--                                                       placeholder="Enter Username" name="Login" required> <label-->
+<!--            for="psw"><b>Hasło:</b></label> <input type="password"-->
+<!--                                                   placeholder="Enter Password" name="Haslo" required>-->
+
+<!--        <button type="submit">Zaloguj</button>-->
+<!--    </div>-->
+<!--</form>-->
+<!--<ul>-->
+<!--    <li><a href="/">Powrót</a></li>-->
+<!--</ul>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,37 +81,23 @@
             <li><a href="zglos">Zgłoś podróż </a></li>
             </li>
         </ul>
-    <li><a>Moje konto</a>
+    <li><a href="/panel">Moje konto</a>
         <ul>
             <li><a href="/login">Zaloguj</a></li>
             <li><a href="/zarejestruj">Zarejestruj</a></li>
         </ul>
     </li>
 </ul>
-
 <div class="container">
     <form action="/action_page.php">
         <div class="row">
             <h2 style="text-align:center">Zaloguj się</h2>
             <div class="vl"></div>
             <div class="col">
-                <a href="#" class="fb btn">
-                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                </a>
-                <a href="#" class="twitter btn">
-                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                </a>
-                <a href="#" class="google btn">
-                    <i class="fa fa-google fa-fw"></i> Login with Google+
-                </a>
-            </div>
-
-            <div class="col">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Login">
+                <button type="button">Zaloguj</button>
             </div>
-
         </div>
     </form>
 </div>
