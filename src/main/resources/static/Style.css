@@ -399,4 +399,39 @@ color: #6ab04c;
 .palm img{
 float: left;
 width: 175px;
-height: 175;}
+height: 175;
+}
+
+.text7{
+text-shadow: 2px 2px 5px red;
+margin-top: 80px;
+margin-left: 500px;
+font-size: 40px;
+font-weight: 700;
+letter-spacing: 8px;
+margin-bottom: 20px;
+position: relative;
+}
+
+.holidays{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#holidays td, #holidays th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#holidays tr:nth-child(even){background-color: transparent;}
+
+#holidays tr:hover {background-color: #ddd;}
+
+#holidays th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0077b3;
+  color: white;
+}
