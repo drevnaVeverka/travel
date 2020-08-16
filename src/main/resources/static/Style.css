@@ -417,7 +417,7 @@ position: relative;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
-}
+  }
 
 #holidays td, #holidays th {
   border: 1px solid #ddd;
@@ -434,4 +434,15 @@ position: relative;
   text-align: left;
   background-color: #0077b3;
   color: white;
+}
+
+#holidays button{
+width: 300 px;
+height: 40px;
+border: none;
+outline: none;
+background: black;
+cursor: pointer;
+color: #fff;
+font: 20;
 }
