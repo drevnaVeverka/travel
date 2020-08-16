@@ -42,7 +42,6 @@
     </li>
 </ul>
     <p th:text="'Hello, ' + ${roomsList} + '!'"/>
-
     <select name="kontynent" id="kontynenty" >
         <option value=""> -- </option>
         <option th:each="continent : ${continentsList}"
@@ -53,20 +52,15 @@
     </select>
 
     <select id="kraje" class="form-control">
-        <!-- your select options -->
     </select>
 
     <select id="hotele" class="form-control">
-        <!-- your select options -->
     </select>
     <select id="pokoje" class="form-control">
-        <!-- your select options -->
     </select>
 
     <select id="cena" class="form-control">
-        <!-- your select options -->
     </select>
-    <!-- Javascript call on document ready -->
     <script>
     function getParameterByName( name ) //courtesy Artem
 {
@@ -122,16 +116,28 @@
     <tr>
         <td>Afryka</td>
         <td>Kenia</td>
-        <td>Safari Nights Hotel</td>
-        <td>blabla</td>
+        <td>Luxury African Hotel</td>
+        <td><b>Miasto:</b> Mombasa; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> All inclusive;
+            <b>Położenie:</b> Hotel znajduje się ok. 700m od Diani Beach - długiej i piaszczystej plaży otoczonej
+            palmami kokosowymi. Na plaży stnieje możliwość wypożyczenia sprzętu do uprawiania sportów wodnych:
+            nurkowania, paddleboarding czy skuterów wodnych. Niedaleko hotelu znajdują się liczne restauracje oraz bary.
+            W hotelu istnieje możliwość wypożyczenia skuterów. W cenie wyjazdu wliczony jest całodzienny pobyt na safari
+            oraz przejażdżka terenowymi samochodami.
+        </td>
         <td>2</td>
         <td>2500</td>
     </tr>
     <tr>
         <td>Afryka</td>
         <td>Kenia</td>
-        <td>Luxury African Hotel</td>
         <td></td>
+        <td><b>Miasto:</b> Mombasa; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> All inclusive;
+            <b>Położenie:</b> Hotel znajduje się ok. 700m od Diani Beach - długiej i piaszczystej plaży otoczonej
+            palmami kokosowymi. Na plaży stnieje możliwość wypożyczenia sprzętu do uprawiania sportów wodnych:
+            nurkowania, paddleboarding czy skuterów wodnych. Niedaleko hotelu znajdują się liczne restauracje oraz bary.
+            W hotelu istnieje możliwość wypożyczenia skuterów. W cenie wyjazdu wliczony jest całodzienny pobyt na safari
+            oraz przejażdżka terenowymi samochodami.
+        </td>
         <td>2</td>
         <td>2000</td>
     </tr>
@@ -139,7 +145,12 @@
         <td>Ameryka Południowa</td>
         <td>Peru</td>
         <td>Llama's Hotel </td>
-        <td></td>
+        <td><b>Miasto:</b> Lima - Cuzco; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania i obiadokolacje;
+            <b>Położenie:</b>Wyjazd obejmuje przylot do stolicy Peru Limy, 3 dni zakwaterowania, 1 dzień przejazdu a
+            następne 3 dni zakwaterowania w mieście Cuzco. Wylot do Polski z Cuzco. Hotele w obu miastach są hotelami
+            4*, w cenie jest śniadanie i obiadokolacja oraz napoje. Na miejscu istnieje możliwość wynajęcia przewodnika
+            po Cuzco.
+        </td>
         <td>3</td>
         <td>3500</td>
     </tr>
@@ -147,7 +158,11 @@
         <td>Ameryka Południowa</td>
         <td>Peru</td>
         <td>Pensylvania </td>
-        <td></td>
+        <td><b>Miasto:</b> Cuzco - Lima; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania i obiadokolacje;
+            <b>Położenie:</b>Wyjazd obejmuje przylot do Cuzco, 3 dni zakwaterowania, 1 dzień przejazdu a następne 3 dni
+            zakwaterowania w stolicy Peru, Limy. Wylot do Polski z Limy. Hotele w obu miastach są hotelami 4*, w cenie
+            jest śniadanie i obiadokolacja oraz napoje. Na miejscu istnieje możliwość wynajęcia przewodnika po Cuzco.
+        </td>
         <td>2</td>
         <td>4000</td>
     </tr>
@@ -155,23 +170,37 @@
         <td>Ameryka Południowa</td>
         <td>Chile</td>
         <td>Patagonia Hotel</td>
-        <td></td>
+        <td><b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b> Hotel
+            położony jest w mieście San Antonio, ok. 2 km od najbliższej plaży. W mieście znajdują się liczbe
+            restauracje, puby oraz targ. Hotel w każdy piątek oferuje wyjazd oraz całodniowy pobyt do Santiago wraz z
+            opieką przewodnika - stolicy Chile (cena uzależniona jest od ilości chętnych osób).
+        </td>
         <td>4</td>
         <td>5000</td>
-    </tr>
-    <tr>
-    <td>Australia</td>
-    <td>Australia - Sydney</td>
-    <td>Sydney Resort&SPA</td>
-    <td></td>
-    <td>2</td>
-    <td>4000</td>
     </tr>
     <tr>
         <td>Australia</td>
         <td>Australia - Sydney</td>
         <td>Sydney Resort&SPA</td>
-        <td></td>
+        <td><b>Miasto:</b> Sydney; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel znajduje się w Sydney - drugim co do wielkości mieście w Australii. Hotel jest w standardzie 4*,
+            pokoje posiadają prywatną łazienkę, klimatyzację oraz balkon. W cenie wyjazdu organizowana jest 2-dniowa
+            wycieczka do Nowej Zelandii. Dodatkowe opłaty: wiza, bilety wstępu oraz przejazdy lokalne. W hotelu znajduje
+            się wypożyczalnia samochodów oraz skuterów - obowiązkowe posiadanie międzynarodowego prawa jazdy.
+        </td>
+        <td>2</td>
+        <td>4000</td>
+    </tr>
+    <tr>
+        <td>Australia</td>
+        <td>Australia - Sydney</td>
+        <td>Sydney Resort&SPA</td>
+        <td><b>Miasto:</b> Sydney; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel znajduje się w Sydney - drugim co do wielkości mieście w Australii. Hotel jest w standardzie 4*,
+            pokoje posiadają prywatną łazienkę, klimatyzację oraz balkon. W cenie wyjazdu organizowana jest 2-dniowa
+            wycieczka do Nowej Zelandii. Dodatkowe opłaty: wiza, bilety wstępu oraz przejazdy lokalne. W hotelu znajduje
+            się wypożyczalnia samochodów oraz skuterów - obowiązkowe posiadanie międzynarodowego prawa jazdy.
+        </td>
         <td>4</td>
         <td>6000</td>
     </tr>
@@ -179,7 +208,12 @@
         <td>Australia</td>
         <td>Australia - Sydney</td>
         <td>Kangaroo SPAtime</td>
-        <td></td>
+        <td><b>Miasto:</b> Sydney; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel znajduje się w Sydney - drugim co do wielkości mieście w Australii. Hotel jest w standardzie 4*,
+            pokoje posiadają prywatną łazienkę, klimatyzację oraz balkon. W cenie wyjazdu organizowana jest 2-dniowa
+            wycieczka do Nowej Zelandii. Dodatkowe opłaty: wiza, bilety wstępu oraz przejazdy lokalne. W hotelu znajduje
+            się wypożyczalnia samochodów oraz skuterów - obowiązkowe posiadanie międzynarodowego prawa jazdy.
+        </td>
         <td>2</td>
         <td>1500</td>
     </tr>
@@ -187,7 +221,12 @@
         <td>Ameryka Północna</td>
         <td>USA</td>
         <td>Big Burgers Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Nowy Jork; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b>
+            Hotel 3* zlokalizowany w samym sercu Manhattanu. Niedaleko znajduje się wiele restauracji, supermarketów
+            oraz siłownia. Ok. 50m od najbliższej stacji metra. Hotel oferuje wykup całodniowej wycieczki po Nowym Jorku
+            z przewodnikiem. Ok. 500 m od hotelu znajduje się Central Park. W hotelu istnieje możliwość wykupu wycieczki
+            na State Island.
+        </td>
         <td>3</td>
         <td>3000</td>
     </tr>
@@ -195,7 +234,11 @@
         <td>Ameryka Północna</td>
         <td>USA</td>
         <td>West Coast Residence</td>
-        <td></td>
+        <td><b>Miasto:</b> Los Angeles; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania;
+            <b>Położenie:</b> Hotel 4* znajdujący się na obrzeżach Los Angeles. W hotelu istnieje możliwość wypożyczenia
+            samochodu. Hotel oferuje pokoje 2 osobowe z dostępnem do basenu. W cenie wycieczki znajduje się całodzienna
+            wycieczka do Las Vegas wraz z przewodnikiem.
+        </td>
         <td>2</td>
         <td>4500</td>
     </tr>
@@ -203,7 +246,13 @@
         <td>Ameryka Północna</td>
         <td>USA</td>
         <td>Sunset Resort</td>
-        <td></td>
+        <td><b>Miasto:</b> Dallas; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel znajduje się w mieście Dallas w stanie Teksas. Hotel 4*, za dodatkową opłatą możliwy wykup opcji All
+            inclusive (śniadanie, obiad, kolacja oraz napoje bezalkoholowe/alkoholowe). Niedaleko hotelu znajduje się
+            przystanek autobusowy. Hotel w swojej ofercie posiada zabiegi spa oraz siłownie - za dodatkową opłatę
+            istnieje możliwość treningu personalnego z trenerem. W 5 dzień wyjazdu przewidziany jest fakultatywny wyjazd
+            na najbliższy stadion footballu amerykanskiego drużyny Cowboys.
+        </td>
         <td>2</td>
         <td>5000</td>
     </tr>
@@ -211,7 +260,13 @@
         <td>Ameryka Północna</td>
         <td>Kanada</td>
         <td>VeryNiceHotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Ottawa; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b>
+            Ottawa jest stolicą i czwartym co do wielkości miastem w Kanadzie. Położona jest na we wschodniej części
+            prowincji, na południowym brzegu rzeki Ottawa. Hotel jest 4*, położony w centrum miasta. Ok 200 m. od hotelu
+            znajduje się supermarket i najbliższy przystanek autobusowy. Hotel oferuje wypożyczenie limuzyn wraz z
+            kierowcami, oraz całodzienną wycieczkę po mieście z przewodnikiem. Pokoje posiadają klimatyzację oraz
+            minibarek.
+        </td>
         <td>4</td>
         <td>5500</td>
     </tr>
@@ -219,7 +274,11 @@
         <td>Europa</td>
         <td>Włochy</td>
         <td>Heaven Resort&SPA</td>
-        <td></td>
+        <td><b>Miasto:</b> Rzym; <b>Długość pobytu:</b> 4 dni; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel 4*, połozony ok 400 m. niedaleko koloseum. Plan wycieczki obejmuje: 1 dzień - przyjazd oraz
+            zakwaterowanie w hotelu, zwiedzania kolosum, 2 dzień - zwiedzanie Rzymu z przewodnikiem, 3 dzień -
+            wypoczynek oraz czas wolny, 4 dzień - powrót do Polski.
+        </td>
         <td>2</td>
         <td>1500</td>
     </tr>
@@ -227,7 +286,10 @@
         <td>Europa</td>
         <td>Włochy</td>
         <td>Spaghetti Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Sycylia - Palermo; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> All inclusive; <b>Położenie:</b>
+            Hotel znajduje się ok 5 km od stolicy Sycylii - Palermo. Hotel posiada ogólnodostępnuy basen oraz jacuzzi i
+            zlokalizowany jest ok. 400 m. od najbliższej plazy. Pokoje są 2 osobowe. UWAGA: hotel tylko dla dorosłych!
+        </td>
         <td>2</td>
         <td>2000</td>
     </tr>
@@ -235,7 +297,12 @@
         <td>Europa</td>
         <td>Hiszpania</td>
         <td>Costa Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Alicante; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> All inclusive;
+            <b>Położenie:</b> Hotel znajduje się ok 1 km od piaszczystej plaży. W ofercie posiada pokoje 2 oraz 3
+            osobowe. W hotelu znajduje się ogólnodostępny basen oraz mini park wodny. All inclusive obowiązuje w
+            godzinach: sniadanie 7-11, drugie śniadanie 12-14, obiad 14-17, kolacja 19-21 oraz bar w godzinach 10-23. Na
+            miejscu istnieje możliwość wykupienia całodziennej wycieczki jachtem oraz 1 godzinną lekcję nurkowania.
+        </td>
         <td>3</td>
         <td>3000</td>
     </tr>
@@ -243,7 +310,12 @@
         <td>Europa</td>
         <td>Hiszpania</td>
         <td>Las Ramblas Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Barcelona; <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania i obiadokolacje;
+            <b>Położenie:</b> Hotel położony jest na obrzeżanych Barcelony, ok 2 km. od najbardziej znanej ulicy w
+            Barcelonie - La Ramblas, ok 5 km od Sagarada Familia oraz ok 6 km od plaży. Na miejscu istnieje możliwość
+            wykupienia 3 h wycieczki z przewodnikiem. Niedaleko hotelu znajdują się restauracje oraz bankomat. Ok 50m.
+            od najbliższej stacji metra.
+        </td>
         <td>2</td>
         <td>2000</td>
     </tr>
@@ -251,7 +323,13 @@
         <td>Azja</td>
         <td>Wietnam</td>
         <td>Da Nang Bay Resort</td>
-        <td></td>
+        <td><b>Miasto:</b> Da Nang; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel znajduje się w centrum miasta Da Nang. Dookoła znajdują się liczne knajpy oraz lokalny bazar. Ok 2 km
+            do plaży oraz 5 km do portu. W hotelu znajduje się wypożyczalnia skuterów - obowiązkowe jest posiadanie
+            międzynarodowego prawa jazdy. Hotel oferuje pokoje 2,3 oraz 4 osobowe zlokalizowane na piętrze 4 oraz 5. W
+            hotelu znajduje się mini kawiarnia z bezpłatnym Wi fi. Z tyłu hotelu znajduje się mini plac zabaw dla
+            dzieci.
+        </td>
         <td>2</td>
         <td>4000</td>
     </tr>
@@ -259,7 +337,13 @@
         <td>Azja</td>
         <td>Wietnam</td>
         <td>Da Nang Bay Resort</td>
-        <td></td>
+        <td><b>Miasto:</b> Da Nang; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel znajduje się w centrum miasta Da Nang. Dookoła znajdują się liczne knajpy oraz lokalny bazar. Ok 2 km
+            do plaży oraz 5 km do portu. W hotelu znajduje się wypożyczalnia skuterów - obowiązkowe jest posiadanie
+            międzynarodowego prawa jazdy. Hotel oferuje pokoje 2,3 oraz 4 osobowe zlokalizowane na piętrze 4 oraz 5. W
+            hotelu znajduje się mini kawiarnia z bezpłatnym Wi fi. Z tyłu hotelu znajduje się mini plac zabaw dla
+            dzieci.
+        </td>
         <td>3</td>
         <td>5000</td>
     </tr>
@@ -267,7 +351,13 @@
         <td>Azja</td>
         <td>Wietnam</td>
         <td>Da Nang Bay Resort</td>
-        <td></td>
+        <td><b>Miasto:</b> Da Nang; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel znajduje się w centrum miasta Da Nang. Dookoła znajdują się liczne knajpy oraz lokalny bazar. Ok 2 km
+            do plaży oraz 5 km do portu. W hotelu znajduje się wypożyczalnia skuterów - obowiązkowe jest posiadanie
+            międzynarodowego prawa jazdy. Hotel oferuje pokoje 2,3 oraz 4 osobowe zlokalizowane na piętrze 4 oraz 5. W
+            hotelu znajduje się mini kawiarnia z bezpłatnym Wi fi. Z tyłu hotelu znajduje się mini plac zabaw dla
+            dzieci.
+        </td>
         <td>4</td>
         <td>6500</td>
     </tr>
@@ -275,7 +365,11 @@
         <td>Azja</td>
         <td>Wietnam</td>
         <td>Viet Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Ho Chi Ming; <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje;
+            <b>Położenie:</b> Hotel 3* znajduje się w mieście Ho Chi Minh niedaleko starówki. Dookoła znajdują się
+            liczne knajpy oraz lokalny bazar. W hotelu znajduje się wypożyczalnia skuterów - obowiązkowe jest posiadanie
+            międzynarodowego prawa jazdy.
+        </td>
         <td>2</td>
         <td>2500</td>
     </tr>
@@ -283,7 +377,12 @@
         <td>Azja</td>
         <td>Tajlandia</td>
         <td>Thaisty Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Koh Samui <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje;
+            <b>Położenie:</b>Ko Samui – wyspa w południowej Tajlandii, w Zatoce Tajlandzkiej, oddzielona cieśniną Samui
+            od Półwyspu Malajskiego. Obiekt oferuje prywatną plażę oraz widok na morze. Na miejscu dostępny jest odkryty
+            basen, a także część wypoczynkowa na plaży. Personel obiektu może zorganizować transfer z i na lotnisko Ko
+            Samui za dodatkową opłatą. Na miejscu prowadzone są treningi jogi oraz za dodatkową opłatą - masaż tajski.
+        </td>
         <td>2</td>
         <td>3000</td>
     </tr>
@@ -291,7 +390,12 @@
         <td>Azja</td>
         <td>Tajlandia</td>
         <td>Thaisty Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Koh Samui <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje;
+            <b>Położenie:</b>Ko Samui – wyspa w południowej Tajlandii, w Zatoce Tajlandzkiej, oddzielona cieśniną Samui
+            od Półwyspu Malajskiego. Obiekt oferuje prywatną plażę oraz widok na morze. Na miejscu dostępny jest odkryty
+            basen, a także część wypoczynkowa na plaży. Personel obiektu może zorganizować transfer z i na lotnisko Ko
+            Samui za dodatkową opłatą. Na miejscu prowadzone są treningi jogi oraz za dodatkową opłatą - masaż tajski.
+        </td>
         <td>4</td>
         <td>5000</td>
     </tr>
@@ -299,7 +403,12 @@
         <td>Azja</td>
         <td>Tajlandia</td>
         <td>Thaisty Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Koh Samui <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> All inclusive;
+            <b>Położenie:</b>Ko Samui – wyspa w południowej Tajlandii, w Zatoce Tajlandzkiej, oddzielona cieśniną Samui
+            od Półwyspu Malajskiego. Obiekt oferuje prywatną plażę oraz widok na morze. Na miejscu dostępny jest odkryty
+            basen, a także część wypoczynkowa na plaży. Personel obiektu może zorganizować transfer z i na lotnisko Ko
+            Samui za dodatkową opłatą. Na miejscu prowadzone są treningi jogi oraz za dodatkową opłatą - masaż tajski.
+        </td>
         <td>3</td>
         <td>3500</td>
     </tr>
@@ -307,7 +416,11 @@
         <td>Azja</td>
         <td>Tajlandia</td>
         <td>Bangkok Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Bangkok <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel jest usytuowany w Bangkoku, ok. 800 metrów od ulicy Khao San Road i 1 km od Muzeum Narodowego. Na
+            miejscu jest możliwość bezpłatnego korzystania z rowerów, prywatnego parkingu oraz WiFi, które jest dostępne
+            we wszystkich pomieszczeniach. W hotelu mieści się też kryty basen i całodobowa recepcja.
+        </td>
         <td>3</td>
         <td>3000</td>
     </tr>
@@ -315,7 +428,12 @@
         <td>Azja</td>
         <td>Singapur</td>
         <td>Singha Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Singapur <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel położony jest w Singapurze, 2 km od centrum sportowego Singapore Sports Hub. Oferuje on pokoje z
+            bezpłatnym WiFi i bezpłatny prywatny parking. Do dyspozycji Gości jest też czynna przez całą dobę recepcja
+            oraz przechowalnia bagażu. Obiekt jest oddalony o 3,6 km od centrum handlowego Suntec City oraz o 4 km od
+            koła młyńskiego Singapore Flyer.
+        </td>
         <td>2</td>
         <td>5000</td>
     </tr>
@@ -323,7 +441,12 @@
         <td>Azja</td>
         <td>Singapur</td>
         <td>Singha Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Singapur <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel położony jest w Singapurze, 2 km od centrum sportowego Singapore Sports Hub. Oferuje on pokoje z
+            bezpłatnym WiFi i bezpłatny prywatny parking. Do dyspozycji Gości jest też czynna przez całą dobę recepcja
+            oraz przechowalnia bagażu. Obiekt jest oddalony o 3,6 km od centrum handlowego Suntec City oraz o 4 km od
+            koła młyńskiego Singapore Flyer.
+        </td>
         <td>3</td>
         <td>5500</td>
     </tr>
@@ -331,30 +454,52 @@
     <td>Azja</td>
     <td>Singapur</td>
     <td>Singha Hotel</td>
-    <td></td>
+        <td><b>Miasto:</b> Singapur <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Hotel położony jest w Singapurze, 2 km od centrum sportowego Singapore Sports Hub. Oferuje on pokoje z
+            bezpłatnym WiFi i bezpłatny prywatny parking. Do dyspozycji Gości jest też czynna przez całą dobę recepcja
+            oraz przechowalnia bagażu. Obiekt jest oddalony o 3,6 km od centrum handlowego Suntec City oraz o 4 km od
+            koła młyńskiego Singapore Flyer.
+        </td>
     <td>4</td>
     <td>6500</td>
-</tr>    <tr>
-    <td>Europa</td>
-    <td>Francja</td>
-    <td>Louvre Hotel</td>
-    <td></td>
-    <td>2</td>
-    <td>2000</td>
 </tr>
+    <tr>
+        <td>Europa</td>
+        <td>Francja</td>
+        <td>Louvre Hotel</td>
+        <td><b>Miasto:</b> Nicea <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b> Hotel
+            jest zlokalizowany 170 metrów od sklepów mieszczących się przy alei Avenue Jean Médecin i 1,2 km od
+            nicejskiej opery. Zaledwie 200 metrów dzieli go od przystanku, na którym zatrzymują się autobusy kursujące
+            na oddalone o 6 km lotnisko Nicea-Lazurowe Wybrzeże. Odległość od przystanku tramwajowego Gare Thiers wynosi
+            220 metrów. Rano podawane są śniadanie kontynentalne, a przez cały dzień w hotelu serwowane są też bezpłatne
+            napoje bezalkoholowe.
+        </td>
+        <td>2</td>
+        <td>2000</td>
+    </tr>
     <tr>
     <td>Europa</td>
     <td>Francja</td>
     <td>Louvre Hotel</td>
-    <td></td>
-    <td>3</td>
+        <td><b>Miasto:</b> Nicea <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b> Hotel
+            jest zlokalizowany 170 metrów od sklepów mieszczących się przy alei Avenue Jean Médecin i 1,2 km od
+            nicejskiej opery. Zaledwie 200 metrów dzieli go od przystanku, na którym zatrzymują się autobusy kursujące
+            na oddalone o 6 km lotnisko Nicea-Lazurowe Wybrzeże. Odległość od przystanku tramwajowego Gare Thiers wynosi
+            220 metrów. Rano podawane są śniadanie kontynentalne, a przez cały dzień w hotelu serwowane są też bezpłatne
+            napoje bezalkoholowe.
+        <td>3</td>
     <td>3000</td>
 </tr>
     <tr>
         <td>Europa</td>
         <td>Portugalia</td>
         <td>Lagos Resort</td>
-        <td></td>
+        <td><b>Miasto:</b> Lagos <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b> Hotel
+            jest położony w mieście Lagos w regionie Algarve, 3,1 km od plaży Meia Praia. Do dyspozycji Gości jest
+            odkryty basen. Na terenie obiektu działa restauracja. Wszystkie pokoje oraz apartamenty obejmują łazienkę i
+            są wyposażone w telewizor z płaskim ekranem i dostępem do kanałów kablowych. Każdy z nich dysponuje balkonem
+            z widokiem na Ocean Atlantycki. Codziennie rano w restauracji serwowane jest śniadanie.
+        </td>
         <td>3</td>
         <td>2000</td>
     </tr>
@@ -363,7 +508,12 @@
         <td>Europa</td>
         <td>Portugalia</td>
         <td>Lagos Resort</td>
-        <td></td>
+        <td><b>Miasto:</b> Lagos <b>Długość pobytu:</b> 1 tydzień; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b> Hotel
+            jest położony w mieście Lagos w regionie Algarve, 3,1 km od plaży Meia Praia. Do dyspozycji Gości jest
+            odkryty basen. Na terenie obiektu działa restauracja. Wszystkie pokoje oraz apartamenty obejmują łazienkę i
+            są wyposażone w telewizor z płaskim ekranem i dostępem do kanałów kablowych. Każdy z nich dysponuje balkonem
+            z widokiem na Ocean Atlantycki. Codziennie rano w restauracji serwowane jest śniadanie.
+        </td>
         <td>4</td>
         <td>2500</td>
     </tr>
@@ -371,7 +521,14 @@
         <td>Ameryka Północna</td>
         <td>Kanada</td>
         <td>Toronto Express Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Toronto <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>Obiekt
+            Delta Hotels by Marriott Toronto położony jest w centrum Toronto, między wieżą CN Tower a kompleksem
+            sportowo-widowiskowym Scotiabank Arena. Oferuje on kryty basen, wannę z hydromasażem i studio jogi. Na
+            miejscu zapewniono bezpłatne WiFi. Pokoje wyposażone są w telewizor z dostępem do kanałów kablowych oraz
+            ekspres do kawy. Niektóre z nich dysponują przeszkloną kabiną prysznicową. W każdym pokoju przygotowano
+            bezpłatny zestaw kosmetyków i suszarkę do włosów. Zaplecze gastronomiczne obiektu obejmuje restaurację oraz
+            bar specjalizujący się w kanadyjskiej whisky.
+        </td>
         <td>2</td>
         <td>8000</td>
     </tr>
@@ -379,7 +536,14 @@
         <td>Afryka</td>
         <td>RPA</td>
         <td>Lion's Cave Resort</td>
-        <td></td>
+        <td><b>Miasto:</b> Kapsztad <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>Obiekt
+            jest usytuowany w dzielnicy Sea Point w Kapsztadzie. Oferuje on luksusowe pokoje i bezpłatne WiFi. Do
+            dyspozycji Gości jest także odkryty basen z leżakami i zaplecze spa. Hotelowe spa obejmuje przestronną
+            łaźnię parową, tradycyjną szwedzką saunę oraz wannę z hydromasażem. Goście mogą również skorzystać z masaży
+            w zaciszu własnego pokoju. Od międzynarodowego portu lotniczego w Kapsztadzie dzieli hotel The Glen zaledwie
+            20 km. Na miejscu znajduje się bezpłatny prywatny parking. Goście mogą skorzystać z transferu lotniskowego
+            oraz wypożyczyć samochód.
+        </td>
         <td>2</td>
         <td>9000</td>
     </tr>
@@ -387,7 +551,11 @@
         <td>Afryka</td>
         <td>Namibia</td>
         <td>Sunrise Resort&SPA</td>
-        <td></td>
+        <td><b>Miasto:</b> Windhuk <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Obiekt położony jest w dzielnicy Klein Windhoek. Oferuje on odkryty basen, spa i restaurację. Goście mają do
+            dyspozycji bezpłatny parking. Pokoje łączą nowoczesne udogodnienia z urokiem dawnych czasów. Każdy z nich
+            mieści łazienkę. Wyposażenie obejmuje klimatyzację, biurko oraz telewizor z płaskim ekranem.
+        </td>
         <td>2</td>
         <td>5500</td>
     </tr>
@@ -395,7 +563,11 @@
         <td>Afryka</td>
         <td>Namibia</td>
         <td>Sunrise Resort&SPA</td>
-        <td></td>
+        <td><b>Miasto:</b> Windhuk <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania i obiadokolacje; <b>Położenie:</b>
+            Obiekt położony jest w dzielnicy Klein Windhoek. Oferuje on odkryty basen, spa i restaurację. Goście mają do
+            dyspozycji bezpłatny parking. Pokoje łączą nowoczesne udogodnienia z urokiem dawnych czasów. Każdy z nich
+            mieści łazienkę. Wyposażenie obejmuje klimatyzację, biurko oraz telewizor z płaskim ekranem.
+        </td>
         <td>3</td>
         <td>7500</td>
     </tr>
@@ -403,7 +575,13 @@
         <td>Ameryka Południowa</td>
         <td>Brazylia</td>
         <td>Rio Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Rio de Janeiro <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania;
+            <b>Położenie:</b>Obiekt jest usytuowany przy plaży Copacabana. Oferuje on pokoje i apartamenty z
+            nowoczesnymi meblami i widokiem na ocean. W pobliżu obiektu znajdują się centra handlowe, ekskluzywne
+            butiki, restauracje, kawiarnie, teatry i kluby nocne. Wzdłuż morza można dojść do plaż w dzielnicach Ipanema
+            i Leblon. Hotel jest oddalony o 15 minut jazdy samochodem od góry Głowa Cukru i pomnika Chrystusa
+            Odkupiciela. Spacer do centrum Rio de Janeiro zajmuje 15 minut.
+        </td>
         <td>2</td>
         <td>6000</td>
     </tr>
@@ -411,7 +589,13 @@
         <td>Ameryka Południowa</td>
         <td>Brazylia</td>
         <td>Gorila’s Hotel </td>
-        <td></td>
+        <td><b>Miasto:</b> Rio de Janeiro <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania;
+            <b>Położenie:</b>Obiekt jest usytuowany przy plaży Copacabana. Oferuje on pokoje i apartamenty z
+            nowoczesnymi meblami i widokiem na ocean. W pobliżu obiektu znajdują się centra handlowe, ekskluzywne
+            butiki, restauracje, kawiarnie, teatry i kluby nocne. Wzdłuż morza można dojść do plaż w dzielnicach Ipanema
+            i Leblon. Hotel jest oddalony o 15 minut jazdy samochodem od góry Głowa Cukru i pomnika Chrystusa
+            Odkupiciela. Spacer do centrum Rio de Janeiro zajmuje 15 minut.
+        </td>
         <td>2</td>
         <td>2750</td>
     </tr>
@@ -419,7 +603,13 @@
         <td>Ameryka Południowa</td>
         <td>Meksyk</td>
         <td>Tortilla Hotel </td>
-        <td></td>
+        <td><b>Miasto:</b> Cancun <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b>Hotel
+            ten usytuowany jest przy plaży, zaledwie 20 minut od centrum miasta Cancun. Oferuje on 2 odkryte baseny,
+            restaurację i pokoje z telewizorem z dostępem do kanałów telewizji satelitarnej. Do dyspozycji Gości są
+            pokoje z klimatyzacją i łazienką. Z okien pokoi roztacza się widok na lagunę lub na Morze Karaibskie. W
+            hotelu Goście mogą posłuchać muzyki, uczestniczyć w zajęciach rekreacyjnych oraz korzystać z baru w basenie.
+            Mogą się również zrelaksować w basenie z widokiem na ocean. Na miejscu dostępna jest siłownia.
+        </td>
         <td>2</td>
         <td>4000</td>
     </tr>
@@ -427,7 +617,13 @@
         <td>Ameryka Południowa</td>
         <td>Meksyk</td>
         <td>Tortilla Hotel</td>
-        <td></td>
+        <td><b>Miasto:</b> Cancun <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b>Hotel
+            ten usytuowany jest przy plaży, zaledwie 20 minut od centrum miasta Cancun. Oferuje on 2 odkryte baseny,
+            restaurację i pokoje z telewizorem z dostępem do kanałów telewizji satelitarnej. Do dyspozycji Gości są
+            pokoje z klimatyzacją i łazienką. Z okien pokoi roztacza się widok na lagunę lub na Morze Karaibskie. W
+            hotelu Goście mogą posłuchać muzyki, uczestniczyć w zajęciach rekreacyjnych oraz korzystać z baru w basenie.
+            Mogą się również zrelaksować w basenie z widokiem na ocean. Na miejscu dostępna jest siłownia.
+        </td>
         <td>3</td>
         <td>3000</td>
     </tr>
@@ -435,11 +631,16 @@
         <td>Ameryka Południowa</td>
         <td>Meksyk</td>
         <td>Tequila Hotel </td>
-        <td></td>
+        <td><b>Miasto:</b> Cancun <b>Długość pobytu:</b> 2 tygodnie; <b>Wyżywienie:</b> Śniadania; <b>Położenie:</b>Obiekt
+            jest usytuowany w strefie hotelowej w Cancún w malowniczej okolicy między Morzem Karaibskim a laguną
+            Nichupté. Oferuje on bezpłatne WiFi we wszystkich pomieszczeniach i taras z widokiem na Morze Karaibskie. Do
+            dyspozycji Gości są jasne pokoje i apartamenty z klimatyzacją oraz podłogą wyłożoną kafelkami. Wszystkie
+            pokoje i apartamenty w hotelu wyposażone są w telewizor z dostępem do kanałów kablowych. Apartamenty
+            obejmują także kuchnię i jadalnię oraz część wypoczynkową.
+        </td>
         <td>4</td>
         <td>7000</td>
     </tr>
 </table>
-
 </body>
 </html>
