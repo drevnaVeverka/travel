@@ -118,3 +118,31 @@ color: #fff;
 font: 60;
 }
 
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+/* Clear floats after the columns */
+ .row:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+
+ /* vertical line */
+ .vl {
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
+   border: 2px solid #ddd;
+   height: 175px;
+ }
+ .bottom-container {
+   text-align: center;
+   background-color: #666;
+   border-radius: 0px 0px 4px 4px;
+ }
+

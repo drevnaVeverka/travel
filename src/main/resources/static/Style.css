@@ -446,3 +446,45 @@ cursor: pointer;
 color: #fff;
 font: 20;
 }
+#tablepanel {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-top: 300px;
+    position: absolute;
+    transform: translate(50%, 50%);
+
+}
+
+#tablepanel td, #tablepanel th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tablepanel tr:nth-child(even){
+background-color: transparent;
+}
+
+#tablepanel tr:hover {background-color: #ddd;}
+
+#tablepanel th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0077b3;
+}
+button{
+cursor: pointer;
+    transform: translate(100%, 100%);
+    background-color: #e7e7e7; color: black;
+    padding: 14px 40px;
+    border-radius: 12px;
+    border: 2px solid #5d6466;
+    transition-duration: 0.4s;
+margin-left:350px;
+margin-top: 500px;
+}
+button:hover{
+  background-color: #5d6466; /* Green */
+  color: white;
+}
