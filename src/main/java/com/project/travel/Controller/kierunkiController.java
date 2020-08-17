@@ -24,7 +24,7 @@ public class kierunkiController {
                 " \"Rooms\".room_id," +
                 " \"Country\".country_id," +
                 " \"Continent\".continent_id," +
-                " \"Rooms\".persons, \"Rooms\".price," +
+                " \"Rooms\".persons, \"Rooms\".price, \"Rooms\".description, \"Rooms\".city, \"Rooms\".date, \"Rooms\".boarding," +
                 " \"Hotels\".name as hotel_name," +
                 " \"Hotels\".description," +
                 " \"Country\".name as country_name," +
@@ -71,7 +71,13 @@ public class kierunkiController {
                     resultSet.getString("continent_name"),
                     resultSet.getString("country_name"),
                     resultSet.getString("hotel_name"),
-                    resultSet.getString("price")
+                    resultSet.getString("price"),
+                    resultSet.getString("description"),
+                    resultSet.getString("city"),
+                    resultSet.getString("date"),
+                    resultSet.getString("boarding")
+
+
             ));
         }
         System.out.println(roomsList);
@@ -118,9 +124,13 @@ class RoomModel {
     public final String country;
     public final String hotel_name;
     public final String price;
+    public final String description;
+    public final String city;
+    public final String date;
+    public final String boarding;
 
 
-    RoomModel(int roomId, int countryId, int continentId, int persons, String continent, String country, String hotel_name, String price) {
+    RoomModel(int roomId, int countryId, int continentId, int persons, String continent, String country, String hotel_name, String price, String description, String city, String date, String boarding) {
         this.roomId = roomId;
         this.countryId = countryId;
         this.continentId = continentId;
@@ -129,6 +139,12 @@ class RoomModel {
         this.country = country;
         this.hotel_name = hotel_name;
         this.price = price;
+        this.description = description;
+        this.city = city;
+        this.date = date;
+        this.boarding = boarding;
+
+
     }
 
     public String getCountry() {

@@ -102,18 +102,26 @@
     <tr>
         <th>Kontynent</th>
         <th>Kraj</th>
+        <th>Miasto</th>
         <th>Hotel</th>
+        <th>Długość wyjazdu</th>
+        <th>Wyżywienie</th>
         <th>Pokoje/os.</th>
         <th>Cena/os.</th>
+        <th>Opis</th>
         <th></th>
     </tr>
     <tbody>
     <tr th:each="roomsList: ${roomsList}">
         <td><span th:text="${roomsList.continent}">Kontynent</span></td>
         <td><span th:text="${roomsList.country}">Kraj</span></td>
+        <td><span th:text="${roomsList.city}">Miasto</span></td>
         <td><span th:text="${roomsList.hotel_name}">Hotel</span></td>
+        <td><span th:text="${roomsList.date}">Długość wyjazdu</span></td>
+        <td><span th:text="${roomsList.boarding}">Wyzywienie</span></td>
         <td><span th:text="${roomsList.persons}">Osoby</span></td>
         <td><span th:text="${roomsList.price}">Cena</span></td>
+        <td><span th:text="${roomsList.description}">Opis</span></td>
         <td>
             <button type="button" onclick="alert('Dodano!')">Wybierz</button>
         </td>
