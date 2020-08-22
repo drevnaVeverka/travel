@@ -78,7 +78,7 @@ public class kierunkiJsonController {
     @ResponseBody
     public String getRooms(@RequestParam("depdrop_all_params[hotele]") int hotel) throws SQLException {
         System.out.println("aaaa zwracam pokoje , dla hotel  id:" + hotel);
-        List<RoomModel> roomsList = new kierunkiController().getDataBaseData(-1, -1, hotel, -1);
+        List<RoomModel> roomsList = new KierunkiController().getDataBaseData(-1, -1, hotel, -1);
         var jsonCountriesInner = new JSONArray();
 
         for (RoomModel singleRoom : roomsList
@@ -105,7 +105,7 @@ public class kierunkiJsonController {
     @ResponseBody
     public String getPrice(@RequestParam("depdrop_all_params[pokoje]") int room) throws SQLException {
         System.out.println("aaaa zwracam cene , dla room id:" + room);
-        List<RoomModel> roomsList = new kierunkiController().getDataBaseData(-1, -1, -1, room);
+        List<RoomModel> roomsList = new KierunkiController().getDataBaseData(-1, -1, -1, room);
         var jsonCountriesInner = new JSONArray();
 
         for (RoomModel singlePrice : roomsList

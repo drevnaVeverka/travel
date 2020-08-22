@@ -7,7 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.Serializable;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -15,7 +18,7 @@ import java.util.stream.Collectors;
 
 
 @Controller
-public class kierunkiController {
+public class KierunkiController {
 
 
     public List<RoomModel> getDataBaseData(int continentId, int countryId, int hotelId, int roomId) throws SQLException {
@@ -76,8 +79,6 @@ public class kierunkiController {
                     resultSet.getString("city"),
                     resultSet.getString("date"),
                     resultSet.getString("boarding")
-
-
             ));
         }
         System.out.println(roomsList);
@@ -85,20 +86,46 @@ public class kierunkiController {
         return roomsList;
     }
 
+
     @GetMapping("/kierunki")
     public void kierunki(
             Model model,
             @RequestParam(defaultValue = "-1") int continentId,
-            @RequestParam(defaultValue = "-1") int countryId
+            @RequestParam(defaultValue = "-1") int countryId,
+            @RequestParam(defaultValue = "-1") int roomIdToAdd
     ) throws SQLException {
-
+        System.out.println("Wybrano room: "  +roomIdToAdd) ;
         List<RoomModel> roomsList = getDataBaseData(continentId, countryId, -1, -1);
         List<RoomModel> continentsList = roomsList.stream().filter(distinctByKey(p -> p.getContinent())).collect(Collectors.toList());
 
         model.addAttribute("roomsList", roomsList);
         model.addAttribute("continentsList", continentsList);
 
+        if (roomIdToAdd != -1) {
+            addRoomToOrder(roomIdToAdd);
+        }
+    }
 
+    private void addRoomToOrder(int roomIdToAdd) {
+        String sqlStatementRemove = "DELETE FROM \"Order\"";
+        try {
+            PreparedStatement statement = Database
+                    .getConnection()
+                    .prepareStatement(sqlStatementRemove);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String sqlStatement = "INSERT INTO \"Order\" (room_id) VALUES (?)";
+        try {
+            PreparedStatement statement = Database
+                    .getConnection()
+                    .prepareStatement(sqlStatement);
+            statement.setInt(1, roomIdToAdd);
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private String appendWhere(String sql, String condition) {
@@ -115,7 +142,37 @@ public class kierunkiController {
     }
 }
 
-class RoomModel {
+class OrderModel {
+
+
+    public final int roomId;
+
+    OrderModel(int roomId) {
+        this.roomId = roomId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderModel that = (OrderModel) o;
+        return roomId == that.roomId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roomId);
+    }
+
+    @Override
+    public String toString() {
+        return "OrderModel{" +
+                "roomId=" + roomId +
+                '}';
+    }
+}
+
+class RoomModel implements Serializable {
     public final int roomId;
     public final int countryId;
     public final int continentId;
@@ -162,18 +219,18 @@ class RoomModel {
     public int getContinentId() {
         return this.continentId;
     }
-//    @Override
-//    public String toString() {
-//        return "RoomModel{" +
-//                "roomId=" + roomId +
-//                " countryId=" + countryId +
-//                " continentId=" + continentId +
-//                ", persons=" + persons +
-//                ", continent='" + continent + '\'' +
-//                ", country='" + country + '\'' +
-//                ", hotel_name='" + hotel_name + '\'' +
-//                ", price='" + price + '\'' +
-//                '}';
-//    }
-}
 
+    @Override
+    public String toString() {
+        return "RoomModel{" +
+                "roomId=" + roomId +
+                " countryId=" + countryId +
+                " continentId=" + continentId +
+                ", persons=" + persons +
+                ", continent='" + continent + '\'' +
+                ", country='" + country + '\'' +
+                ", hotel_name='" + hotel_name + '\'' +
+                ", price='" + price + '\'' +
+                '}';
+    }
+}
